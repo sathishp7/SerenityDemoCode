@@ -5,10 +5,15 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class AmazonTestcase {
 public static void main(String[] args) throws Exception {
-	ChromeDriver driver = new ChromeDriver();
+	ChromeOptions options = new ChromeOptions();
+	options.addArguments("--remote-allow-origins=*");
+	ChromeDriver driver = new ChromeDriver(options);
+	
+	//ChromeDriver driver = new ChromeDriver();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	driver.manage().window().maximize();
 	driver.get("https://www.amazon.in/");
